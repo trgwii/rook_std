@@ -11,7 +11,6 @@ pub fn main() !void {
         "-fstrip",
         "-target",
         "x86_64-linux",
-        "start.s",
         "main.zig",
     }, std.heap.page_allocator);
     build.stdin_behavior = .Inherit;
