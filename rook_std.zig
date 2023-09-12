@@ -258,7 +258,7 @@ pub fn read(fd: i32, buf: []u8) ReadError!u32 {
         E.BADF => ReadError.bad_file_descriptor,
         else => panicUnexpectedErrno(-bytesRead),
     };
-    return @truncate(bytesRead);
+    return @truncate(@as(usize, @bitCast(bytesRead)));
 }
 
 pub const MMapError = error{
